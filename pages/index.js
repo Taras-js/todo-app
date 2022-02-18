@@ -10,7 +10,7 @@ export default function Home() {
         .then(function (data) {
             const array = data.map(t => t)
             dispatch({type: "GET_POST_TODOS", payload: array})
-            return console.log(array)
+            return array
         })
         .catch(function (error) {
         })

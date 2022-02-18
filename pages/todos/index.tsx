@@ -1,18 +1,19 @@
 import {NavbarLayout} from "../../layout/navbarLayout";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
+import {RootState} from "../../store/reducers";
 
-export default function Todos() {
+export default function Todos(props) {
+    console.log(props)
+    const todos = useSelector((state: RootState) => state.todo.todos)
+    const totalTodos: number = todos.length;
+    const pageSize: number = 20;
+    let pagesCount: number = Math.ceil(totalTodos / pageSize);
+    const pages: Array<number> = [];
+    for (let i = 1; i <= pagesCount; i++) { pages.push(i) }
 
-    const todos = useSelector(state => state.todo.todos)
-    const totalTodos = todos.length;
-    const pageSize = 20;
-    let pagesCount = Math.ceil(totalTodos / pageSize);
-    const pages = [];
-    for (let i = 1; i <= pagesCount; i++) {
-    pages.push(i)}
-    function inter (page) {
-        const end = page*pageSize;
-        const start = end - 19;
+    function inter (page: number) {
+        const end: number = page*pageSize;
+        const start: number = end - 19;
         const filter = todos.filter(size => size.id <= end && size.id >= start);
         const list = document.querySelector('ul');
         list.innerHTML = filter.map(t =>

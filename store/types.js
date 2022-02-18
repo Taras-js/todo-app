@@ -1,2 +1,0 @@
-export const GET_POST_TODOS = 'GET_POST_TODOS';
-export const ADD_TITLE_HOME_PAGE = 'ADD-TITLE-HOME-PAGE';

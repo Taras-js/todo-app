@@ -1,5 +1,6 @@
 import * as types from '../types'
-const initialState = {
+import HomeState from "../../interfaces/interface-redux";
+const initialState: HomeState = {
     homeTitle: 'Описание приложения (список todo в формате Single Page Application):',
     loading: false,
     error: null

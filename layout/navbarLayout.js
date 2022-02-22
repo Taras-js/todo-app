@@ -17,8 +17,8 @@ export function NavbarLayout ({ children, title='Todos' }) {
         <div className={"wrapper"}>
             <Link href={"/"}><a> To home </a></Link>
             <Link href={"/todos"}><a> To todos </a></Link>
-            {/*<Link href={"/filter"}><a> Filter from userId </a></Link>*/}
-            {/*<Link href={"/newtodos"}><a> New todos </a></Link>*/}
+            <Link href={"/filter"}><a> Filter from userId </a></Link>
+            <Link href={"/newtodos"}><a> New todos </a></Link>
         </div>
     </nav>
     <main> {children} </main>

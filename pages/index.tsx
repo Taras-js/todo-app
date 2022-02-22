@@ -1,25 +1,14 @@
 import {NavbarLayout} from "../layout/navbarLayout";
-import {useDispatch, useSelector} from "react-redux";
-const axios = require('axios');
+import {useSelector} from "react-redux";
+import {RootState} from "../store/reducers";
+
 
 export default function Home() {
-    const dispatch = useDispatch()
-    axios.get('https://jsonplaceholder.typicode.com/todos')
-        .then(data => {return data.data})
-        // .then(data => data)
-        .then(function (data) {
-            const array = data.map(t => t)
-            dispatch({type: "GET_POST_TODOS", payload: array})
-            return array
-        })
-        .catch(function (error) {
-        })
-    let titleHome = useSelector(state => state.home.homeTitle)
-
+    // let titleHome = useSelector((state: RootState) => state.homePage.homeTitle)
     return (
         <NavbarLayout title={'Home Page'}>
             <main>
-                <h2> {titleHome} </h2>
+                <h1>  </h1>
                 <ol>
                     <li>Приложение содержит 2 страницы: главная и список todo</li>
                     <li>Переход между страницами реализован через navbar</li>

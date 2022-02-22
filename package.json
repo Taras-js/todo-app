@@ -1,11 +1,14 @@
 {
   "name": "todo-app",
   "private": true,
+
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
+
+
   },
   "dependencies": {
     "axios": "^0.26.0",
@@ -19,10 +22,12 @@
     "redux-thunk": "^2.4.1",
     "sass": "^1.49.7",
     "typescript": "^4.5.5"
+
   },
   "devDependencies": {
     "@types/node": "^17.0.18",
     "eslint": "8.9.0",
     "eslint-config-next": "12.0.10"
+
   }
 }

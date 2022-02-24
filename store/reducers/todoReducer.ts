@@ -3,12 +3,6 @@ import { TodoState } from "../../interfaces/interface-redux";
 
 const initialState: TodoState  = {
     todos: [],
-    todo: {
-        userId: 1,
-        id: 202,
-        title: "string",
-        completed: false
-    },
     totalCount: 0,
     pageSize: 15,
     totalPageCount: 0,
@@ -19,7 +13,6 @@ const initialState: TodoState  = {
 export const todoReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.CURRENT_PAGE:
-           console.log(action.payload)
             return {
                 ...state,
                 currentPage: action.payload
@@ -55,14 +48,16 @@ export const todoReducer = (state = initialState, action) => {
         case types.CHANGE_MESSAGE: {
             return {
                 ...state,
-                todos: [...state.todos.map(todo => todo.id === action.payload.id ? {...todo, title: action.payload.title} : todo)],
+                todos: [...state.todos.map(todo => todo.id === action.payload.id ? {...todo, title: action.payload.title } : todo)],
+                totalCount: state.todos.length,
                 loading: true,
                 error: null,
             }
         }
         case types.NEW_TODOS: {
-                return {...state,
-                todos: [...state.todos, action.payload] , loading: true,
+            return {...state,
+                todos: [...state.todos, action.payload] ,
+                    loading: true,
                     error: null,
                     totalCount: state.todos.length,
                     totalPageCount: Math.ceil(state.todos.length/state.pageSize),

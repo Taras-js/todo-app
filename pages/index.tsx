@@ -7,8 +7,8 @@ export default function Home() {
     return (
         <NavbarLayout title={'Home Page'}>
             <main>
-                <h1>  { titleHome }</h1>
-                <ol>
+                <h1 className={'title'}>  { titleHome }</h1>
+                <ol className={'list__requirements'}>
                     <li>Приложение содержит 2 страницы: главная и список todo</li>
                     <li>Переход между страницами реализован через navbar</li>
                     <li>На главной странице лого и краткое описание страницы</li>
@@ -17,7 +17,7 @@ export default function Home() {
                     <li>Реализована возможность добавления/изменения/удаления todo</li>
                     <li>Реализована пагинация без перезагрузки страницы</li>
                 </ol>
-                <ul><strong>Использовано:</strong>
+                <ul className={'list__requirements'}><strong>Использовано:</strong>
                     <li>React</li>
                     <li>Redux</li>
                     <li>React router</li>

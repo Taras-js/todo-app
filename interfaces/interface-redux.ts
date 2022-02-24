@@ -7,14 +7,7 @@ export  interface HomeState {
 }
 
 export  interface TodoState {
-    todos: Array <object>,
-    todo: {
-        userId: number,
-        id: number,
-        title: string
-        completed: Boolean
-
-    },
+    todos: Array <todo>,
     totalCount: number,
     pageSize: number,
     currentPage: number,
@@ -23,3 +16,10 @@ export  interface TodoState {
     error: null
 }
 
+interface todo {
+    userId: number,
+    id: number,
+    title: string
+    completed: Boolean
+
+}

@@ -14,21 +14,25 @@ export const deleteTodos = (id) => async dispatch => {
 }
 
 export const changeTodo = (newMessage, id) => async dispatch => {
-    const responseChange = await axios.patch(`https://jsonplaceholder.typicode.com/todos/${id}`,{title: newMessage})
+    const responseChange = await axios.patch(`https://jsonplaceholder.typicode.com/todos/${id}`,{
+        id: id,
+        title: newMessage})
         .then(response => { return response.data})
-        dispatch({ type: types.CHANGE_MESSAGE, payload: responseChange })
+        dispatch({ type: types.CHANGE_MESSAGE, payload: responseChange})
 }
 
 export const currentPage = (p) => dispatch => {
         dispatch({ type: types.CURRENT_PAGE, payload: p })
 }
 
-export const addNewTodo = (newTodo) => async dispatch => {
+export const addNewTodo = (newTodo, id) => async dispatch => {
+
     const res = await axios.post(`https://jsonplaceholder.typicode.com/todos`, {
+
             userId: 1,
             completed: false,
             title: newTodo,
     })
         .then(response => { return response.data})
-        dispatch({ type: types.NEW_TODOS, payload: res })
+        dispatch({ type: types.NEW_TODOS, payload: res, id })
 }

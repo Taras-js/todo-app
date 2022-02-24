@@ -36,6 +36,11 @@ body {
 .wrapper {
   display: flex;
   justify-content: center;
+
+}
+.wrap {
+  display: flex;
+  justify-content: center;
 }
 .selectedPage {
   height: 30px;
@@ -62,12 +67,13 @@ body {
 .btn {
   background: #e86161fa;
   font-size: 16px;
-  color: black;
+  color: white;
   border-color: black;
   margin: 0 5px 5px 0;
   cursor: pointer;
   border-radius: 5px;
 }
-textarea {
-  min-width: 1000px;
+.sendTodo {
+  display: flex;
+  justify-content: right;
 }

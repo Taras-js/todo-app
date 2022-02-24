@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import {todoReducer} from "./todoReducer";
-import {homeReducer} from "./homeReducer";
+import { todoReducer } from "./todoReducer";
+import { homeReducer } from "./homeReducer";
 const rootReducer = combineReducers({
 
     todoPage: todoReducer,

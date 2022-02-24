@@ -2,13 +2,12 @@ import {NavbarLayout} from "../layout/navbarLayout";
 import {useSelector} from "react-redux";
 import {RootState} from "../store/reducers";
 
-
 export default function Home() {
-    // let titleHome = useSelector((state: RootState) => state.homePage.homeTitle)
+    let titleHome = useSelector((state: RootState) => state.homePage.homeTitle)
     return (
         <NavbarLayout title={'Home Page'}>
             <main>
-                <h1>  </h1>
+                <h1>  { titleHome }</h1>
                 <ol>
                     <li>Приложение содержит 2 страницы: главная и список todo</li>
                     <li>Переход между страницами реализован через navbar</li>
@@ -25,7 +24,6 @@ export default function Home() {
                     <li>Next js</li>
                     <li>Typescript</li>
                     <li>Axios</li>
-                    <li>Sass</li>
                 </ul>
             </main>
         </NavbarLayout>

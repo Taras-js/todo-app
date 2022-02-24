@@ -1,16 +1,16 @@
 import * as types from '../types'
 import { TodoState } from "../../interfaces/interface-redux";
 
-
-
 const initialState: TodoState  = {
     todos: [],
     todo: {
-
-
+        userId: 1,
+        id: 202,
+        title: "string",
+        completed: false
     },
     totalCount: 0,
-    pageSize: 20,
+    pageSize: 15,
     totalPageCount: 0,
     currentPage: 1,
     loading: false,
@@ -23,7 +23,6 @@ export const todoReducer = (state = initialState, action) => {
             return {
                 ...state,
                 currentPage: action.payload
-
             }
         case types.GET_TODOS:
             return {
@@ -39,38 +38,36 @@ export const todoReducer = (state = initialState, action) => {
             return {
                 ...state,
                 todos: [...state.todos.filter(el => el.id !== action.payload)],
+                totalCount: state.todos.length,
+                totalPageCount: Math.ceil(state.todos.length/state.pageSize),
                 loading: true,
                 error: null
-
             }
         }
-        case types.GET_TODOS_NEW: {  return {
+        case types.GET_TODOS_NEW: {
+            return {
                 ...state,
                 todos: action.payload,
                 loading: true,
                 error: null
-
-
             }
         }
         case types.CHANGE_MESSAGE: {
-
             return {
                 ...state,
                 todos: [...state.todos.map(todo => todo.id === action.payload.id ? {...todo, title: action.payload.title} : todo)],
                 loading: true,
                 error: null,
-
             }
         }
         case types.NEW_TODOS: {
-        console.log(action.payload)
                 return {...state,
-                todos: [...state.todos, state.todos.push(action.payload) ]
+                todos: [...state.todos, action.payload] , loading: true,
+                    error: null,
+                    totalCount: state.todos.length,
+                    totalPageCount: Math.ceil(state.todos.length/state.pageSize),
                 }
         }
-
-
         default:
             return state
     }

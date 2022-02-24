@@ -13,10 +13,8 @@ export const homeReducer = (state = initialState, action) => {
                 homeTitle: [...action.payload],
                 loading: false,
                 error: null
-
             }
         default:
             return state
     }
-
 }
